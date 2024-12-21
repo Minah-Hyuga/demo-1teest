@@ -3,15 +3,16 @@ package exam.services;
 import exam.data.entities.Commande;
 import exam.data.entities.Article;
 import exam.data.repository.CommandeRepository;
+import jakarta.persistence.EntityManager;
 
 public class CommandeService {
     private CommandeRepository commandeRepository;
 
-    public CommandeService(CommandeRepository commandeRepository) {
-        this.commandeRepository = commandeRepository;
+    public CommandeService(EntityManager em) {
+        this.commandeRepository = new CommandeRepository(em);
     }
 
-    public void saveCommande(Commande commande) {
+    public void save(Commande commande) {
         commandeRepository.save(commande);
     }
 
@@ -20,10 +21,11 @@ public class CommandeService {
     }
 
     public void removeArticleFromCommande(Long commandeId, Long articleId) {
-        commandeRepository.removeArticleFromCommande(commandeId, articleId);
+     
+
     }
 
-public Commande findCommandeById(Long id) {
+    public Commande findCommandeById(Long id) {
         return commandeRepository.findById(id);
     }
 }
