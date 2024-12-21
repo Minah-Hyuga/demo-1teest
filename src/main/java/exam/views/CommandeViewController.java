@@ -15,6 +15,7 @@ import exam.services.ClientService;
 import exam.services.CommandeService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 
 public class CommandeViewController {
 

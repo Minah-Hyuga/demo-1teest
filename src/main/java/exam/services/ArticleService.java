@@ -2,12 +2,14 @@ package exam.services;
 
 import exam.data.entities.Article;
 import exam.data.repository.ArticleRepository;
+import jakarta.persistence.EntityManager;
+import java.util.List;
 
 public class ArticleService {
     private ArticleRepository articleRepository;
 
-    public ArticleService(ArticleRepository articleRepository) {
-        this.articleRepository = articleRepository;
+    public ArticleService(EntityManager em) {
+        this.articleRepository = new ArticleRepository(em);
     }
 
     public void saveArticle(Article article) {
@@ -23,6 +25,10 @@ public class ArticleService {
     }
 
     public void deleteArticle(Long id) {
-        articleRepository.deleteArticle(id);
+        articleRepository.deleteArticle(id); // Ensure this method accepts Long
+    }
+
+    public List<Article> findAll() {
+        return articleRepository.findAll();
     }
 }
