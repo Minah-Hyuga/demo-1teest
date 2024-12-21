@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="exam.view.CommandeViewController"
+            prefHeight="600.0" prefWidth="800.0">
+    
+    <VBox spacing="20" AnchorPane.topAnchor="20" AnchorPane.leftAnchor="20" 
+        AnchorPane.rightAnchor="20" AnchorPane.bottomAnchor="20">
+        
+        <!-- Section Recherche Client -->
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="Numéro de téléphone:" />
+            <TextField fx:id="telephoneField" promptText="77867XXXX" />
+            <Button text="Rechercher" onAction="#rechercherClient" />
+        </HBox>
+        
+        <!-- Informations Client -->
+        <GridPane hgap="10" vgap="5">
+            <Label text="Nom complet:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="nomField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            
+            <Label text="Adresse:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <TextField fx:id="adresseField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        </GridPane>
+        
+        <!-- Section Ajout Article -->
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <ComboBox fx:id="articleComboBox" promptText="Choisir un Article" />
+            <TextField fx:id="prixField" promptText="Prix" prefWidth="100" />
+            <TextField fx:id="quantiteField" promptText="Quantité" prefWidth="100" />
+            <Button text="Ajouter" onAction="#ajouterArticle" />
+        </HBox>
+        
+        <!-- Table des Articles -->
+        <TableView fx:id="articlesTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="articleColumn" text="Article" />
+                <TableColumn fx:id="prixColumn" text="Prix" />
+                <TableColumn fx:id="quantiteColumn" text="Quantité" />
+                <TableColumn fx:id="montantColumn" text="Montant" />
+                <TableColumn fx:id="actionsColumn" text="Actions" />
+            </columns>
+        </TableView>
+        
+        <!-- Total et Validation -->
+        <HBox spacing="20" alignment="CENTER_RIGHT">
+            <Label text="Total:" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+            <Label fx:id="totalLabel" text="0.0" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+            <Button text="Valider la Commande" 
+                    onAction="#validerCommande"
+                    style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />
+        </HBox>
+        
+    </VBox>
+</AnchorPane>

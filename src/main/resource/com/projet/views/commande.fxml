@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projet.views.CommandeController">
+    <children>
+        <!-- Recherche du client -->
+        <VBox alignment="CENTER" spacing="10" layoutX="20" layoutY="20">
+            <TextField fx:id="telephoneField" promptText="Numéro de téléphone" />
+            <Button text="Rechercher" onAction="#handleSearchClient" />
+        </VBox>
+        
+        <!-- Affichage des informations du client -->
+        <VBox alignment="CENTER" spacing="10" layoutX="20" layoutY="80">
+            <Label fx:id="clientInfoLabel" text="Informations du client" />
+        </VBox>
+
+        <!-- Liste des articles de la commande -->
+        <TableView fx:id="articlesTable" layoutX="20" layoutY="160">
+            <columns>
+                <TableColumn text="Article" fx:id="articleColumn" />
+                <TableColumn text="Prix" fx:id="priceColumn" />
+                <TableColumn text="Quantité" fx:id="quantityColumn" />
+                <TableColumn text="Actions" fx:id="actionsColumn" />
+            </columns>
+        </TableView>
+
+        <!-- Ajout d'articles à la commande -->
+        <VBox alignment="CENTER" spacing="10" layoutX="20" layoutY="400">
+            <TextField fx:id="articleField" promptText="ID de l'article" />
+            <TextField fx:id="priceField" promptText="Prix" />
+            <TextField fx:id="quantityField" promptText="Quantité" />
+            <Button text="Ajouter à la commande" onAction="#handleAddArticle" />
+        </VBox>
+    </children>
+</AnchorPane>
