@@ -43,23 +43,12 @@ public class ArticleRepository {
         em.getTransaction().commit();
     }
 
-    public Article getArticleById(int id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getArticleById'");
-    }
-
-    public void saveArticle(Article article) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'saveArticle'");
-    }
-
-    public void deleteArticle(int id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteArticle'");
-    }
-
-    public void updateArticle(Article article) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateArticle'");
+    public void deleteArticle(Long id) {
+        em.getTransaction().begin();
+        Article article = em.find(Article.class, id);
+        if (article != null) {
+            em.remove(article);
+        }
+        em.getTransaction().commit();
     }
 }
