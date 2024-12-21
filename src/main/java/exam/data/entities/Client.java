@@ -63,4 +63,9 @@ public class Client {
     public void setAdresse(String adresse) {
         this.adresse = adresse;
     }
+
+    // New method to get full name
+    public String getNomComplet() {
+        return nom + " " + prenom;
+    }
 }
